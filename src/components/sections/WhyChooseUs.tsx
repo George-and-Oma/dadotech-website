@@ -29,9 +29,9 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-32 bg-[#111113]" id="why-us">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+    <section className="py-28 md:py-36 bg-[#111113]" id="why-us">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -39,16 +39,16 @@ export function WhyChooseUs() {
             viewport={{ once: true }}
             className="lg:sticky lg:top-32"
           >
-            <div className="section-label mb-4">Why Choose Us</div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            <div className="section-label mb-5">Why Choose Us</div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-8 tracking-[-0.02em]">
               The Dadotech <span className="text-gradient">Advantage</span>
             </h2>
-            <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+            <p className="text-zinc-400 text-lg leading-[1.85] mb-12">
               We combine deep technical expertise with a commitment to exceptional service delivery. Our team of certified professionals brings decades of combined experience across networking, cloud computing, cybersecurity, and software development.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(245,158,11,0.3)] group"
+              className="inline-flex items-center gap-3 px-9 py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl text-base font-semibold text-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(245,158,11,0.3)] group"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -56,7 +56,7 @@ export function WhyChooseUs() {
           </motion.div>
 
           {/* Right Column - Features */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.number}
@@ -66,7 +66,7 @@ export function WhyChooseUs() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="grid grid-cols-[auto_1fr] gap-6 p-8 bg-[#1a1a1d] border border-zinc-800 rounded-2xl transition-all duration-300 hover:border-amber-500 hover:translate-x-2">
+                <div className="grid grid-cols-[auto_1fr] gap-7 p-8 bg-[#1a1a1d] border border-zinc-800 rounded-2xl transition-all duration-300 hover:border-amber-500 hover:translate-x-2">
                   {/* Number */}
                   <div className="font-display text-5xl font-extrabold text-amber-500/30 leading-none">
                     {feature.number}
@@ -74,10 +74,10 @@ export function WhyChooseUs() {
 
                   {/* Content */}
                   <div>
-                    <h4 className="font-display text-xl font-bold text-white mb-2">
+                    <h4 className="font-display text-xl font-bold text-white mb-3 tracking-[-0.01em]">
                       {feature.title}
                     </h4>
-                    <p className="text-zinc-400 leading-relaxed">
+                    <p className="text-zinc-400 leading-[1.75] text-[15px]">
                       {feature.description}
                     </p>
                   </div>

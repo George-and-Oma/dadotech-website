@@ -31,15 +31,15 @@ const duplicatedTestimonials = [...testimonials, ...testimonials];
 
 export function TestimonialsSection() {
   return (
-    <section className="py-32 bg-[#111113] overflow-hidden" id="testimonials">
-      <div className="container mx-auto px-6">
+    <section className="py-28 md:py-36 bg-[#111113] overflow-hidden" id="testimonials">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-label justify-center mb-4"
+            className="section-label justify-center mb-5"
           >
             Testimonials
           </motion.div>
@@ -48,7 +48,7 @@ export function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-bold mb-6"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-7 tracking-[-0.02em]"
           >
             What Our Clients Say
           </motion.h2>
@@ -57,7 +57,7 @@ export function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-zinc-400 text-lg"
+            className="text-zinc-400 text-lg leading-relaxed"
           >
             Don't just take our word for it.
           </motion.p>
@@ -69,7 +69,7 @@ export function TestimonialsSection() {
         {duplicatedTestimonials.map((testimonial, index) => (
           <div
             key={`${testimonial.author}-${index}`}
-            className="flex-shrink-0 w-[400px] p-10 bg-[#1a1a1d] border border-zinc-800 rounded-[20px] relative"
+            className="flex-shrink-0 w-[420px] p-10 bg-[#1a1a1d] border border-zinc-800 rounded-[20px] relative"
           >
             {/* Quote mark */}
             <div className="absolute top-6 right-8 font-display text-7xl font-extrabold text-amber-500/15 leading-none">
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
             </div>
 
             {/* Quote text */}
-            <p className="text-zinc-400 leading-relaxed mb-8 relative z-10">
+            <p className="text-zinc-400 leading-[1.85] mb-10 relative z-10 text-[15px]">
               {testimonial.quote}
             </p>
 
@@ -87,7 +87,7 @@ export function TestimonialsSection() {
                 {testimonial.initials}
               </div>
               <div>
-                <h5 className="font-semibold text-white">{testimonial.author}</h5>
+                <h5 className="font-semibold text-white text-[15px]">{testimonial.author}</h5>
                 <p className="text-sm text-zinc-500">
                   {testimonial.role}, {testimonial.company}
                 </p>

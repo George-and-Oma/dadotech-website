@@ -6,26 +6,26 @@ import Link from 'next/link';
 
 export function CTASection() {
   return (
-    <section className="py-40 relative overflow-hidden" id="contact">
+    <section className="py-36 md:py-44 relative overflow-hidden" id="contact">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0b] via-[#111113] to-[#0a0a0b]" />
 
       {/* Glow effect */}
       <div className="absolute w-[800px] h-[800px] rounded-full blur-[200px] bg-amber-500 opacity-30 top-[-400px] left-1/2 -translate-x-1/2" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-none tracking-tight">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-[1.1] tracking-[-0.03em]">
             Ready to Transform Your{' '}
             <span className="text-gradient">Business?</span>
           </h2>
-          <p className="text-xl text-zinc-400 mb-12 max-w-xl mx-auto">
+          <p className="text-xl text-zinc-400 mb-14 max-w-2xl mx-auto leading-[1.85]">
             Let's discuss how Dadotech can help you achieve your technology goals. Get a free consultation with our experts today.
           </p>
 
