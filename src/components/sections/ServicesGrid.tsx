@@ -2,11 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Network, Phone, Settings, Cloud, Shield, Camera, Code, Lightbulb } from 'lucide-react';
-import { Section, SectionHeader } from '@/components/ui/Section';
-import { Card } from '@/components/ui/Card';
+import { Network, Phone, Settings, Cloud, Shield, Camera, Code, Lightbulb } from 'lucide-react';
 import { SERVICES } from '@/lib/constants';
-import { cn } from '@/lib/utils';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Network,
@@ -19,63 +16,78 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Lightbulb,
 };
 
-const colorMap: Record<string, string> = {
-  blue: 'bg-blue-500/10 text-blue-600 group-hover:bg-blue-500 group-hover:text-white',
-  cyan: 'bg-cyan-500/10 text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white',
-  indigo: 'bg-indigo-500/10 text-indigo-600 group-hover:bg-indigo-500 group-hover:text-white',
-  sky: 'bg-sky-500/10 text-sky-600 group-hover:bg-sky-500 group-hover:text-white',
-  emerald: 'bg-emerald-500/10 text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white',
-  violet: 'bg-violet-500/10 text-violet-600 group-hover:bg-violet-500 group-hover:text-white',
-  rose: 'bg-rose-500/10 text-rose-600 group-hover:bg-rose-500 group-hover:text-white',
-  amber: 'bg-amber-500/10 text-amber-600 group-hover:bg-amber-500 group-hover:text-white',
-};
-
 export function ServicesGrid() {
   return (
-    <Section background="gray" id="services">
-      <SectionHeader
-        subtitle="What We Do"
-        title="Comprehensive Technology Solutions"
-        description="From network infrastructure to cybersecurity, we provide end-to-end technology solutions that help businesses operate efficiently and securely."
-      />
+    <section className="py-32 bg-[#0a0a0b]" id="services">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-label justify-center mb-4"
+          >
+            What We Do
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-4xl md:text-5xl font-bold mb-6"
+          >
+            Comprehensive Technology Solutions
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-zinc-400 text-lg"
+          >
+            From network infrastructure to cybersecurity, we provide end-to-end technology solutions that help businesses operate efficiently and securely.
+          </motion.p>
+        </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {SERVICES.map((service, index) => {
-          const Icon = iconMap[service.icon];
-          return (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Link href={`/services/${service.id}`} className="block group">
-                <Card className="h-full relative overflow-hidden">
-                  <div
-                    className={cn(
-                      'w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-300',
-                      colorMap[service.color]
-                    )}
-                  >
-                    <Icon className="w-7 h-7" />
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SERVICES.map((service, index) => {
+            const Icon = iconMap[service.icon];
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link href={`/services/${service.id}`} className="block group h-full">
+                  <div className="h-full bg-[#111113] border border-zinc-800 rounded-2xl p-8 relative overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:border-amber-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(245,158,11,0.3)]">
+                    {/* Left accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Icon */}
+                    <div className="w-14 h-14 rounded-xl bg-amber-500/10 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-amber-500 group-hover:to-teal-500 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+                      <Icon className="w-7 h-7 text-amber-500 transition-colors duration-300 group-hover:text-zinc-900" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-display text-xl font-bold text-white mb-3">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-zinc-400 text-sm leading-relaxed">
+                      {service.shortDesc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {service.shortDesc}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-primary-600 group-hover:gap-2 transition-all">
-                    Learn more
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Card>
-              </Link>
-            </motion.div>
-          );
-        })}
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

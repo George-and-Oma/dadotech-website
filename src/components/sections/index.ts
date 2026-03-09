@@ -1,4 +1,5 @@
 export { Hero } from './Hero';
+export { StatsSection } from './Stats';
 export { ServicesGrid } from './ServicesGrid';
 export { AboutSection } from './About';
 export { IndustriesSection } from './Industries';

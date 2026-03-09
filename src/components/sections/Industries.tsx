@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Building2, Briefcase, Landmark, GraduationCap, Heart, ShoppingCart, Wallet, Factory, ArrowRight } from 'lucide-react';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Building2, Briefcase, Landmark, GraduationCap, Heart, ShoppingCart, CreditCard, Factory } from 'lucide-react';
 import { INDUSTRIES } from '@/lib/constants';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -13,65 +12,83 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   GraduationCap,
   Heart,
   ShoppingCart,
-  Wallet,
+  Wallet: CreditCard,
   Factory,
 };
 
 export function IndustriesSection() {
   return (
-    <Section background="gradient">
-      <SectionHeader
-        subtitle="Industries We Serve"
-        title="Solutions Tailored to Your Industry"
-        description="We understand that different industries have unique technology requirements. Our solutions are designed to address sector-specific challenges."
-        light
-      />
+    <section className="py-32 bg-[#0a0a0b] relative" id="industries">
+      {/* Top gradient line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {INDUSTRIES.map((industry, index) => {
-          const Icon = iconMap[industry.icon];
-          return (
-            <motion.div
-              key={industry.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Link
-                href={`/industries#${industry.id}`}
-                className="block group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-label justify-center mb-4"
+          >
+            Industries We Serve
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-4xl md:text-5xl font-bold mb-6"
+          >
+            Solutions Tailored to Your Industry
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-zinc-400 text-lg"
+          >
+            We understand that different industries have unique technology requirements.
+          </motion.p>
+        </div>
+
+        {/* Industries Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {INDUSTRIES.map((industry, index) => {
+            const Icon = iconMap[industry.icon];
+            return (
+              <motion.div
+                key={industry.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="w-12 h-12 rounded-xl bg-accent-500/20 flex items-center justify-center mb-4 group-hover:bg-accent-500 transition-colors">
-                  <Icon className="w-6 h-6 text-accent-400 group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {industry.name}
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  {industry.description}
-                </p>
-              </Link>
-            </motion.div>
-          );
-        })}
-      </div>
+                <Link
+                  href={`/industries#${industry.id}`}
+                  className="block group h-full"
+                >
+                  <div className="relative h-full py-10 px-7 bg-[#111113] border border-zinc-800 rounded-2xl text-center overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:rotate-[-1deg]">
+                    {/* Hover gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-teal-500 opacity-0 group-hover:opacity-15 transition-opacity duration-400" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="mt-12 text-center"
-      >
-        <Link
-          href="/industries"
-          className="inline-flex items-center gap-2 text-white font-medium hover:text-accent-400 transition-colors"
-        >
-          View All Industries
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </motion.div>
-    </Section>
+                    {/* Icon */}
+                    <div className="relative z-10 w-16 h-16 mx-auto mb-5 bg-teal-500/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:bg-teal-500 group-hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+                      <Icon className="w-8 h-8 text-teal-500 transition-colors duration-300 group-hover:text-zinc-900" />
+                    </div>
+
+                    {/* Name */}
+                    <div className="relative z-10 font-display text-lg font-semibold text-white">
+                      {industry.name}
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,10 +1,9 @@
 import {
   Hero,
+  StatsSection,
   ServicesGrid,
-  AboutSection,
-  IndustriesSection,
   WhyChooseUs,
-  PartnersSection,
+  IndustriesSection,
   TestimonialsSection,
   CTASection,
 } from '@/components/sections';
@@ -13,12 +12,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsSection />
       <ServicesGrid />
-      <AboutSection />
       <WhyChooseUs />
       <IndustriesSection />
       <TestimonialsSection />
-      <PartnersSection />
       <CTASection />
     </>
   );
