@@ -1,0 +1,8 @@
+export { Hero } from './Hero';
+export { ServicesGrid } from './ServicesGrid';
+export { AboutSection } from './About';
+export { IndustriesSection } from './Industries';
+export { WhyChooseUs } from './WhyChooseUs';
+export { PartnersSection } from './Partners';
+export { TestimonialsSection } from './Testimonials';
+export { CTASection } from './CTA';
